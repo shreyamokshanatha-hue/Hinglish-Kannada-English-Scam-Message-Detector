@@ -1,0 +1,101 @@
+id,message,label,scam_type,language,source
+1,"Nimma KYC expire agide click madi",1,KYC,Kannada-English,Synthetic
+2,"Can you send me today's notes?",0,None,English,Synthetic
+3,"Job bekandre ee link open madi",1,Job,Kannada-English,Synthetic
+4,"Tomorrow class starts at 9 AM",0,None,English,Synthetic
+5,"Your UPI refund is pending click here",1,UPI,English,Synthetic
+6,"Did you have lunch?",0,None,English,Synthetic
+7,"Nimma account block agutte KYC update madi",1,KYC,Kannada-English,Synthetic
+8,"Please submit the assignment tomorrow",0,None,English,Synthetic
+9,"Aapka KYC expire ho gaya hai update karo",1,KYC,Hinglish,Synthetic
+10,"I will call you after class",0,None,English,Synthetic
+11,"Your bank account will be blocked today click here",1,Bank,English,Synthetic
+12,"The bank statement is available in your app",0,None,English,Synthetic
+13,"UPI cashback claim madbeku ee link open madi",1,UPI,Kannada-English,Synthetic
+14,"Can you share the lab record?",0,None,English,Synthetic
+15,"Earn 5000 daily from home job registration fee only 299",1,Job,English,Synthetic
+16,"Our placement training starts tomorrow",0,None,English,Synthetic
+17,"Nimma PAN verify agilla immediately update madi",1,KYC,Kannada-English,Synthetic
+18,"Your interview is scheduled for Monday",0,None,English,Synthetic
+19,"Congratulations you won a cash prize claim now",1,Lottery,English,Synthetic
+20,"Congratulations on your birthday",0,None,English,Synthetic
+21,"Aapka bank account band ho jayega KYC update karo",1,KYC,Hinglish,Synthetic
+22,"I received the payment successfully",0,None,English,Synthetic
+23,"Your parcel is held pay 25 rupees to release it",1,Delivery,English,Synthetic
+24,"Your parcel will arrive tomorrow",0,None,English,Synthetic
+25,"Job chahiye toh ye form fill karo",1,Job,Hinglish,Synthetic
+26,"Please send me the internship details",0,None,English,Synthetic
+27,"Refund lene ke liye link par click karo",1,UPI,Hinglish,Synthetic
+28,"The refund has been credited to your account",0,None,English,Synthetic
+29,"Nimma electricity bill pending ide pay immediately",1,Electricity,Kannada-English,Synthetic
+30,"I paid the electricity bill yesterday",0,None,English,Synthetic
+31,"Your Aadhaar will be blocked update KYC immediately",1,KYC,English,Synthetic
+32,"Please bring your Aadhaar copy for college admission",0,None,English,Synthetic
+33,"Invest 500 and earn 5000 every day guaranteed",1,Investment,English,Synthetic
+34,"I am going to the bank today",0,None,English,Synthetic
+35,"OTP share madi cashback receive madi",1,UPI,Kannada-English,Synthetic
+36,"Do not share your OTP with anyone",0,None,English,Synthetic
+37,"Loan approved pay processing fee now",1,Loan,English,Synthetic
+38,"I submitted my loan application yesterday",0,None,English,Synthetic
+39,"Nimma parcel cancel agutte payment madi",1,Delivery,Kannada-English,Synthetic
+40,"My parcel was delivered this morning",0,None,English,Synthetic
+41,"Aapko work from home job mila hai registration karo",1,Job,Hinglish,Synthetic
+42,"I applied for a work from home internship",0,None,English,Synthetic
+43,"Your SIM will be blocked verify your details",1,Bank,English,Synthetic
+44,"My new SIM card was activated today",0,None,English,Synthetic
+45,"Click this link to receive your UPI refund",1,UPI,English,Synthetic
+46,"I received my UPI refund yesterday",0,None,English,Synthetic
+47,"Nimma account security verification pending ide",1,Bank,Kannada-English,Synthetic
+48,"The account verification was completed successfully",0,None,English,Synthetic
+49,"You are selected for a lottery reward claim immediately",1,Lottery,English,Synthetic
+50,"Our college fest registration is open",0,None,English,Synthetic
+51,"KYC update madilla andre account block agutte",1,KYC,Kannada-English,Synthetic
+52,"My account is working normally",0,None,English,Synthetic
+53,"Earn money easily by investing today",1,Investment,English,Synthetic
+54,"I am learning about investments for my project",0,None,English,Synthetic
+55,"Your delivery address is incomplete click to update",1,Delivery,English,Synthetic
+56,"I updated my delivery address in the shopping app",0,None,English,Synthetic
+57,"Job registration fee pay madi immediately",1,Job,Kannada-English,Synthetic
+58,"I have completed my job application",0,None,English,Synthetic
+59,"Aapka refund pending hai abhi claim karo",1,UPI,Hinglish,Synthetic
+60,"My refund was processed last week",0,None,English,Synthetic
+61,"Your PAN card will be suspended click here",1,KYC,English,Synthetic
+62,"I submitted my PAN documents for verification",0,None,English,Synthetic
+63,"Nimma UPI account ge cashback bandide claim madi",1,UPI,Kannada-English,Synthetic
+64,"I received a cashback notification from the shopping app",0,None,English,Synthetic
+65,"You have won 10000 rupees send details to claim",1,Lottery,English,Synthetic
+66,"My friend sent me 1000 rupees",0,None,English,Synthetic
+67,"Urgent update your bank details within one hour",1,Bank,English,Synthetic
+68,"I updated my bank details through the official app",0,None,English,Synthetic
+69,"Part time job daily income 3000 registration link",1,Job,English,Synthetic
+70,"My part time internship starts next week",0,None,English,Synthetic
+71,"Nimma loan approve agide processing fee pay madi",1,Loan,Kannada-English,Synthetic
+72,"The bank approved my education loan",0,None,English,Synthetic
+73,"Click now or your account will be permanently blocked",1,Bank,English,Synthetic
+74,"My account was temporarily locked after too many attempts",0,None,English,Synthetic
+75,"Aapka electricity bill overdue hai pay karo link se",1,Electricity,Hinglish,Synthetic
+76,"I paid my electricity bill using the official website",0,None,English,Synthetic
+77,"Your OTP is required to complete the refund",1,UPI,English,Synthetic
+78,"Never share OTP with anyone",0,None,English,Synthetic
+79,"Nimma KYC verification complete madbeku ee link click madi",1,KYC,Kannada-English,Synthetic
+80,"The KYC verification was completed at the bank",0,None,English,Synthetic
+81,"Congratulations your mobile number won a prize",1,Lottery,English,Synthetic
+82,"My mobile recharge was successful",0,None,English,Synthetic
+83,"Job offer confirm madoke registration fee pay madi",1,Job,Kannada-English,Synthetic
+84,"The company sent me an internship offer letter",0,None,English,Synthetic
+85,"Your parcel will be cancelled unless you pay immediately",1,Delivery,English,Synthetic
+86,"I received my parcel today",0,None,English,Synthetic
+87,"Invest now guaranteed double return",1,Investment,English,Synthetic
+88,"I am studying investment strategies",0,None,English,Synthetic
+89,"Nimma bank account KYC pending ide urgent update madi",1,KYC,Kannada-English,Synthetic
+90,"I checked my bank account balance today",0,None,English,Synthetic
+91,"Aapka account verify nahi hua click karo",1,Bank,Hinglish,Synthetic
+92,"I verified my account using the bank application",0,None,English,Synthetic
+93,"UPI refund claim madoke ee link use madi",1,UPI,Kannada-English,Synthetic
+94,"The UPI payment was successful",0,None,English,Synthetic
+95,"Work from home job earn 10000 weekly pay registration fee",1,Job,English,Synthetic
+96,"I attended an online career workshop today",0,None,English,Synthetic
+97,"Your reward is waiting click immediately",1,Lottery,English,Synthetic
+98,"The college announced a scholarship program",0,None,English,Synthetic
+99,"Nimma parcel release madbeku payment madi",1,Delivery,Kannada-English,Synthetic
+100,"The courier company delivered my package",0,None,English,Synthetic

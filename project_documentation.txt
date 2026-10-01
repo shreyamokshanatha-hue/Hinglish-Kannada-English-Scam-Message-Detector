@@ -1,0 +1,572 @@
+HINGLISH/KANNADA-ENGLISH SCAM MESSAGE DETECTOR
+================================================
+
+1. PROBLEM STATEMENT
+--------------------
+
+With the increasing use of digital payments, online banking, messaging
+applications, and mobile communication, scam messages have become a
+common problem.
+
+Many scam messages are written in informal English, Hinglish, or
+Kannada-English code-mixed language. These messages may contain
+requests related to KYC updates, account blocking, prizes, loans,
+payments, job offers, or suspicious links.
+
+Traditional spam detection systems may not handle informal
+code-mixed messages effectively.
+
+Therefore, this project develops a machine-learning-based system
+that analyzes a text message and predicts whether it is likely to
+be a SCAM or NORMAL message.
+
+The system uses Word TF-IDF and Character TF-IDF features with
+Logistic Regression to identify patterns in scam messages.
+
+2. OBJECTIVES
+-------------
+
+1. To develop a machine-learning-based system for detecting scam
+   messages.
+
+2. To use a combined dataset containing public labeled messages and
+   synthetic Kannada-English/Hinglish examples.
+
+3. To preprocess text messages by converting them to lowercase,
+   removing URLs and special characters, and normalizing whitespace.
+
+4. To extract Word TF-IDF features from the messages.
+
+5. To extract Character TF-IDF features to capture spelling variations,
+   informal writing, and code-mixed text patterns.
+
+6. To combine Word and Character TF-IDF features for improved
+   classification.
+
+7. To train a Logistic Regression model to classify messages as
+   SCAM or NORMAL.
+
+8. To evaluate the model using accuracy, precision, recall, F1-score,
+   and a confusion matrix.
+
+9. To develop a simple Streamlit web interface for real-time scam
+   message prediction.
+
+3. DATASET DESCRIPTION
+----------------------
+
+The dataset used in this project is a combination of a public labeled
+message dataset and a small set of synthetic messages created for
+Kannada-English and Hinglish scam detection.
+
+Total messages: 3,887
+
+Normal messages: 3,090
+Scam messages: 797
+
+The dataset contains the following information:
+
+- Message text
+- Label
+- Scam type
+- Language
+- Source
+
+The labels are:
+
+0 = NORMAL
+1 = SCAM
+
+The dataset was divided into training and testing sets using an
+80:20 split. Stratified splitting was used so that the proportion
+of normal and scam messages was maintained in both sets.
+
+Training messages: 3,109
+Testing messages: 778
+
+4. DATA PREPROCESSING
+---------------------
+
+Before training the machine learning model, the text messages are
+preprocessed to make them suitable for feature extraction.
+
+The following preprocessing steps are performed:
+
+1. Convert the message into lowercase.
+
+2. Remove URLs and website links.
+
+3. Remove unnecessary special characters while preserving
+   English and Kannada characters.
+
+4. Remove extra spaces from the message.
+
+5. Store the cleaned message for further processing.
+
+Example:
+
+Original message:
+Nimma KYC expire agide! Click this link immediately.
+
+Cleaned message:
+nimma kyc expire agide click this link immediately
+
+The cleaned messages are then given to the TF-IDF vectorizers
+for feature extraction.
+
+5. FEATURE EXTRACTION
+---------------------
+
+TF-IDF (Term Frequency-Inverse Document Frequency) is used to
+convert text messages into numerical features that can be processed
+by the machine learning model.
+
+This project uses two types of TF-IDF features:
+
+1. WORD TF-IDF
+---------------
+
+Word-level TF-IDF represents messages using individual words and
+captures important words or terms that occur in scam messages.
+
+Examples of important terms may include:
+
+- KYC
+- account
+- OTP
+- payment
+- prize
+- click
+- refund
+- job
+
+2. CHARACTER TF-IDF
+-------------------
+
+Character-level TF-IDF represents text using sequences of characters.
+
+It is useful for detecting:
+
+- Spelling variations
+- Informal writing
+- Abbreviations
+- Code-mixed words
+- Partial word patterns
+
+This is particularly useful for Hinglish and Kannada-English
+messages where users may write the same word in different ways.
+
+3. HYBRID FEATURES
+------------------
+
+The Word TF-IDF and Character TF-IDF features are combined to
+create a hybrid feature representation.
+
+The combined features are then given to the Logistic Regression
+classifier for prediction.
+
+6. MACHINE LEARNING MODEL
+-------------------------
+
+The project uses Logistic Regression as the main classification
+algorithm.
+
+Logistic Regression is a supervised machine learning algorithm
+used for binary classification.
+
+In this project, the model predicts two classes:
+
+0 = NORMAL
+1 = SCAM
+
+The hybrid Word + Character TF-IDF features are provided as input
+to the Logistic Regression model.
+
+The model learns patterns from the training messages and uses these
+patterns to classify new messages as either SCAM or NORMAL.
+
+The trained model and both TF-IDF vectorizers are saved using the
+Joblib library so that they can be reused by the prediction script
+and Streamlit web application.
+
+7. MODEL EVALUATION
+-------------------
+
+The trained model is evaluated using standard classification
+performance measures.
+
+The following evaluation metrics are used:
+
+1. Accuracy
+   Measures the overall percentage of correctly classified messages.
+
+2. Precision
+   Measures how many messages predicted as scam are actually scam.
+
+3. Recall
+   Measures how many actual scam messages are correctly detected.
+
+4. F1-Score
+   Provides a balance between precision and recall.
+
+5. Confusion Matrix
+   Shows the number of correctly and incorrectly classified
+   normal and scam messages.
+
+The hybrid model achieved the following results on the test dataset:
+
+Accuracy: 97.43%
+Scam Precision: 100%
+Scam Recall: 87.5%
+Scam F1-Score: 93%
+
+Confusion Matrix:
+
+                 Predicted
+               Normal   Scam
+
+Actual Normal     618      0
+Actual Scam        20    140
+
+From the confusion matrix, 618 normal messages and 140 scam
+messages were correctly classified. The model missed 20 scam
+messages and produced 0 false positives on this test set.
+
+8. MODEL COMPARISON
+-------------------
+
+Three machine learning configurations were evaluated to compare
+their performance.
+
+1. Word TF-IDF + Logistic Regression
+   Accuracy: 96.53%
+
+2. Character TF-IDF + Logistic Regression
+   Accuracy: 95.24%
+
+3. Hybrid Word + Character TF-IDF + Logistic Regression
+   Accuracy: 97.43%
+
+The hybrid model combines both word-level and character-level
+features and achieved the highest measured accuracy among the
+three configurations tested on the same test split.
+
+The model comparison graph is saved as:
+
+results/model_accuracy_comparison.png
+
+9. STREAMLIT WEB APPLICATION
+----------------------------
+
+A Streamlit-based web interface was developed to make the scam
+detection system easy to use.
+
+The user can enter a message into the text box and click the
+"Check Message" button.
+
+The application performs the following steps:
+
+1. Accepts the message entered by the user.
+
+2. Cleans the message using the same preprocessing steps used
+   during model training.
+
+3. Converts the message into Word TF-IDF features.
+
+4. Converts the message into Character TF-IDF features.
+
+5. Combines both feature sets.
+
+6. Sends the combined features to the trained Logistic Regression
+   model.
+
+7. Displays the prediction as either SCAM or NORMAL.
+
+8. Displays the model's prediction confidence.
+
+The application can be started using:
+
+streamlit run app.py
+
+10. PROJECT WORKFLOW
+--------------------
+
+The overall workflow of the Hinglish/Kannada-English Scam Message
+Detector is:
+
+Dataset Collection
+        ↓
+Dataset Combination
+        ↓
+Data Preprocessing
+        ↓
+Train-Test Split
+        ↓
+Word TF-IDF Extraction
+        ↓
+Character TF-IDF Extraction
+        ↓
+Feature Combination
+        ↓
+Logistic Regression Training
+        ↓
+Model Evaluation
+        ↓
+Model and Vectorizer Saving
+        ↓
+User Message Input
+        ↓
+Prediction
+        ↓
+SCAM / NORMAL Result
+
+The workflow allows the trained model to process a new message
+and provide a classification through both the Python prediction
+script and the Streamlit web application.
+
+11. PROJECT RESULTS
+-------------------
+
+The developed system successfully classifies text messages into
+SCAM and NORMAL categories.
+
+The hybrid Word + Character TF-IDF model achieved:
+
+Accuracy: 97.43%
+Scam Precision: 100%
+Scam Recall: 87.5%
+Scam F1-Score: 93%
+
+The confusion matrix shows:
+
+- 618 normal messages correctly classified.
+- 140 scam messages correctly classified.
+- 20 scam messages incorrectly classified as normal.
+- 0 normal messages incorrectly classified as scam.
+
+The system was also tested with English, Hinglish, and
+Kannada-English style messages through the prediction script and
+Streamlit web application.
+
+The trained model, TF-IDF vectorizers, model comparison graph,
+and confusion matrix are saved in the project directory for
+further use and demonstration.
+
+12. CONCLUSION
+--------------
+
+The Hinglish/Kannada-English Scam Message Detector was developed
+using Natural Language Processing and Machine Learning techniques.
+
+The system uses Word TF-IDF and Character TF-IDF features to
+represent text messages and Logistic Regression to classify them
+as SCAM or NORMAL.
+
+The hybrid model achieved an accuracy of 97.43% on the test
+dataset used in this project.
+
+The project also provides a Streamlit web interface through which
+users can enter messages and receive a real-time prediction.
+
+The use of character-level features helps the system handle
+informal spellings and code-mixed text patterns that are common
+in Hinglish and Kannada-English messages.
+
+However, the prediction is not a guaranteed confirmation that a
+message is a scam. It is a machine-learning-based classification
+and should be used as an additional warning when evaluating
+suspicious messages.
+
+13. FUTURE ENHANCEMENTS
+-----------------------
+
+The project can be further improved in the following ways:
+
+1. Increase the size and diversity of the dataset with more
+   Kannada-English, Hinglish, and English scam messages.
+
+2. Collect real-world scam messages from reliable and legally
+   appropriate sources.
+
+3. Explore additional machine learning and deep learning models
+   such as Random Forest, XGBoost, LSTM, or transformer-based
+   language models.
+
+4. Improve detection of new and previously unseen scam patterns.
+
+5. Add more detailed scam categories such as KYC scams, job scams,
+   loan scams, payment scams, prize scams, and phishing messages.
+
+6. Add multilingual support for Kannada and other Indian languages.
+
+7. Deploy the Streamlit application online so that it can be
+   accessed through a web browser.
+
+8. Continuously update the dataset and retrain the model to adapt
+   to changing scam message patterns.
+
+14. TECHNOLOGIES USED
+---------------------
+
+Programming Language:
+- Python
+
+Libraries and Frameworks:
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Seaborn
+- Joblib
+- SciPy
+- Streamlit
+
+Machine Learning:
+- Logistic Regression
+- Word TF-IDF
+- Character TF-IDF
+
+Development Environment:
+- Visual Studio Code
+- Python Virtual Environment
+
+Data Processing:
+- CSV
+- JSON
+
+Visualization:
+- Model Accuracy Comparison Graph
+- Confusion Matrix
+
+15. PROJECT FILE STRUCTURE
+--------------------------
+
+Hinglish_Kannada_Scam_Detector/
+│
+├── app.py
+│
+├── data/
+│   ├── messages.csv
+│   ├── data.json
+│   ├── hinglish_dataset.csv
+│   └── final_dataset.csv
+│
+├── models/
+│   ├── hybrid_model.pkl
+│   ├── word_vectorizer.pkl
+│   └── char_vectorizer.pkl
+│
+├── results/
+│   ├── model_comparison.py
+│   ├── model_comparison.csv
+│   ├── model_accuracy_comparison.png
+│   └── confusion_matrix.png
+│
+├── src/
+│   ├── test_setup.py
+│   ├── load_data.py
+│   ├── preprocessing.py
+│   ├── train.py
+│   ├── character_model.py
+│   ├── hybrid_model.py
+│   ├── convert_dataset.py
+│   ├── combine_dataset.py
+│   ├── check_final_dataset.py
+│   ├── predict.py
+│   └── confusion_matrix.py
+│
+├── project_documentation.txt
+│
+└── venv/
+
+16. PROJECT EXECUTION COMMANDS
+------------------------------
+
+The following commands are used to run the different parts of the
+project.
+
+1. Activate the virtual environment:
+
+venv\Scripts\activate
+
+2. Check the final dataset:
+
+python src/check_final_dataset.py
+
+3. Run text preprocessing:
+
+python src/preprocessing.py
+
+4. Train the hybrid model:
+
+python src/hybrid_model.py
+
+5. Test the prediction system:
+
+python src/predict.py
+
+6. Generate the confusion matrix:
+
+python src/confusion_matrix.py
+
+7. Generate the model comparison graph:
+
+python results/model_comparison.py
+
+8. Start the Streamlit web application:
+
+streamlit run app.py
+
+17. LIMITATIONS
+---------------
+
+1. The model's performance depends on the quality and diversity of
+   the training dataset.
+
+2. Some scam messages may be incorrectly classified as normal,
+   especially when their wording is very different from the
+   training data.
+
+3. The current dataset contains a relatively small number of
+   synthetic Kannada-English and Hinglish examples.
+
+4. The model may not correctly understand the meaning or context
+   of every message.
+
+5. Scam messages continuously change their wording and techniques,
+   so the model may require regular updates and retraining.
+
+6. The confidence value displayed by the application represents
+   the model's prediction probability and should not be interpreted
+   as a guaranteed measure of whether a message is actually a scam.
+
+7. The system is designed as a detection aid and should not replace
+   human judgment when evaluating suspicious messages.
+
+18. REFERENCES AND RESOURCES
+----------------------------
+
+The project was developed using the following technical resources:
+
+1. Python Documentation
+   Used for Python programming and project development.
+
+2. Pandas Documentation
+   Used for dataset loading and data manipulation.
+
+3. Scikit-learn Documentation
+   Used for TF-IDF feature extraction, train-test splitting,
+   Logistic Regression, and model evaluation.
+
+4. Matplotlib Documentation
+   Used for generating the model comparison graph.
+
+5. Streamlit Documentation
+   Used for developing the web application.
+
+6. Joblib Documentation
+   Used for saving and loading the trained machine learning model
+   and TF-IDF vectorizers.
+
+The project also uses a public labeled text dataset together with
+a small set of synthetic examples created for this project.

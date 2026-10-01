@@ -1,0 +1,4 @@
+Model,Accuracy
+Word TF-IDF + Logistic Regression,96.53
+Character TF-IDF + Logistic Regression,95.24
+Hybrid Word + Character TF-IDF + Logistic Regression,97.43
